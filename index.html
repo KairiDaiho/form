@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体験会申し込みフォーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="chatbox" class="chatbox">
+            <div id="step1" class="step">
+                <h2>ECG チャットボット</h2>
+                <p>こちらは体験会のお申し込みフォームになります！まず、お名前をご入力ください。</p>
+                <input type="text" id="nameInput" placeholder="例: 山田太郎（フルネームでお願いします。）">
+                <button class="back-button" onclick="goBack(1)">戻る</button>
+                <button onclick="goToStep(2)">送信</button>
+            </div>
+
+            <div id="step2" class="step" style="display: none;">
+                <h2>ECG チャットボット</h2>
+                <p>ありがとうございます！次に、電話番号をご入力ください。</p>
+                <input type="text" id="phoneInput" placeholder="例: 123-4567-8910">
+                <button class="back-button" onclick="goBack(2)">戻る</button>
+                <button onclick="goToStep(3)">送信</button>
+            </div>
+
+            <div id="step3" class="step" style="display: none;">
+                <h2>ECG チャットボット</h2>
+                <p>ありがとうございます！次に、メールアドレスをご入力ください。</p>
+                <input type="text" id="emailInput" placeholder="例: example@emal.com">
+                <button class="back-button" onclick="goBack(3)">戻る</button>
+                <button onclick="goToStep(4)">送信</button>
+            </div>
+
+            <div id="step4" class="step" style="display: none;">
+                <h2>ECG チャットボット</h2>
+                <p>ありがとうございます！最後に、体験会に参加する日時をご選択ください。</p>
+                <div class="date-buttons">
+                    <button onclick="selectDate('9/7土 11:00 - 13:00')">9/7土 11:00 - 13:00</button>
+                    <button onclick="selectDate('9/8日 11:00 - 13:00')">9/8日 11:00 - 13:00</button>
+                    <button onclick="selectDate('9/14土 11:00 - 13:00')">9/14土 11:00 - 13:00</button>
+                    <button onclick="selectDate('9/15日 11:00 - 13:00')">9/15日 11:00 - 13:00</button>
+                    <button onclick="selectDate('9/21土 11:00 - 13:00')">9/21土 11:00 - 13:00</button>
+                    <button onclick="selectDate('9/22日 11:00 - 13:00')">9/22日 11:00 - 13:00</button>
+                    <button onclick="selectDate('9/28土 11:00 - 13:00')">9/28土 11:00 - 13:00</button>
+                    <button onclick="selectDate('9/29日 11:00 - 13:00')">9/29日 11:00 - 13:00</button>
+                </div>
+            </div>
+
+            <div id="step5" class="step" style="display: none;">
+                <h2>ECG チャットボット</h2>
+                <p>ありがとうございます！入力内容を確認の上、「完了」を押してください。</p>
+                <div class="confirmation">
+                    <p id="confirmName"></p>
+                    <p id="confirmPhone"></p>
+                    <p id="confirmEmail"></p>
+                    <p id="confirmDate"></p>
+                    <button class="back-button" onclick="goBack(4)">戻る</button>
+                    <button class="complete-button" onclick="complete()">完了</button>
+                </div>
+            </div>
+
+            <div id="step6" class="step" style="display: none;">
+                <h2>ECG チャットボット</h2>
+                <p>申し込み完了です！</p>
+                <p>この度はお申し込みくださり誠にありがとうございました。体験会当日楽しみにお待ちしております。 
+                    <br>
+                    <br>申し込み内容の確認とリマインドメッセージを公式LINEにて行っておりますので下のボタンから追加しておいてください。
+                </p>
+                <button class="line-button">公式LINEを追加</button>
+            </div>
+        </div>
+
+        <div id="summaryBox" class="summary-box">
+            <h3>入力内容確認</h3>
+            <p id="nameSummary">名前：</p>
+            <p id="phoneSummary">電話番号：</p>
+            <p id="emailSummary">メールアドレス：</p>
+            <p id="dateSummary">体験会参加日：</p>
+        </div>
+    </div>
+
+    <form id="dataForm" method="POST" action="https://script.google.com/macros/s/AKfycbwmyIHcTOPIp_ROAsAe1j7pxhLb-AAsPJUUzjgZj_FuYYxB-or8Iz4qFoneFYdXud9Ulw/exec">
+        <input type="hidden" name="name" id="formName">
+        <input type="hidden" name="phone" id="formPhone">
+        <input type="hidden" name="email" id="formEmail">
+        <input type="hidden" name="date" id="formDate">
+        <button type="submit" style="display:none;" id="submitFormButton"></button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
