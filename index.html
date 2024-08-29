@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECG 体験会申し込みフォーム</title>
-    <link rel="icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="icon-192x192" sizes="192x192" href="/icon-192x192.png">
-    <link rel="icon-196x196" sizes="196x196" href="/icon-196x196.png">
-    <link rel="icon-512x512" sizes="512x512" href="/icon-512x512.png">
-    <link rel="site-tile-310x310" sizes="310x310" href="/site-tile-310x310.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <!-- 進捗バー -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <!-- カウントダウンタイマー -->
+        <div id="countdown" class="countdown">
+            <p id="campaign-text">限定10名！50,000円OFFキャンペーン終了まで、</p>
+            <p id="countdownTimer"></p>
+        </div>
+
+        <!-- チャットボックスのコンテンツ -->
         <div id="chatbox" class="chatbox">
             <div id="step1" class="step">
                 <h2>ECG チャットボット</h2>
@@ -25,7 +30,7 @@
 
             <div id="step2" class="step" style="display: none;">
                 <h2>ECG チャットボット</h2>
-                <p>ありがとうございます！次に、電話番号をご入力ください。</p>
+                <p>ありがとうございます！次に、電話番号をご入力ください。（ハイフンありでお願いします。）</p>
                 <input type="text" id="phoneInput" placeholder="例: 123-4567-8910">
                 <button class="back-button" onclick="goBack(2)">戻る</button>
                 <button onclick="goToStep(3)">送信</button>
@@ -34,7 +39,7 @@
             <div id="step3" class="step" style="display: none;">
                 <h2>ECG チャットボット</h2>
                 <p>ありがとうございます！次に、メールアドレスをご入力ください。</p>
-                <input type="text" id="emailInput" placeholder="例: example@emal.com">
+                <input type="text" id="emailInput" placeholder="例: example@email.com">
                 <button class="back-button" onclick="goBack(3)">戻る</button>
                 <button onclick="goToStep(4)">送信</button>
             </div>
@@ -75,9 +80,11 @@
                     <br>申し込み内容の確認とリマインドメッセージを公式LINEにて行っておりますので下のボタンから追加しておいてください。
                 </p>
                 <button class="line-button">公式LINEを追加</button>
+                <button class="invite-button" onclick="inviteFriends()">友達を誘う</button>
             </div>
         </div>
 
+        <!-- 入力内容確認の表示 -->
         <div id="summaryBox" class="summary-box">
             <h3>入力内容確認</h3>
             <p id="nameSummary">名前：</p>
@@ -87,7 +94,7 @@
         </div>
     </div>
 
-    <form id="dataForm" method="POST" action="https://script.google.com/macros/s/AKfycbzqAgA-ROxhr_SsirZ4IRvBlkXaII7PXiMfmbc2BBcMJJC9lES1kc7_ceQM7dLqLmyV4g/exec">
+    <form id="dataForm" method="POST" action="https://script.google.com/macros/s/AKfycbx4imDTMncgiE93WfvzkMKpAZLcJDxLVktABh9VfgyZ59Hg97CVQb1_D1nWWqHmvAJliA/exec">
         <input type="hidden" name="name" id="formName">
         <input type="hidden" name="phone" id="formPhone">
         <input type="hidden" name="email" id="formEmail">

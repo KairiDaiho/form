@@ -7,6 +7,20 @@ body {
     width: 390px;
     margin: 0 auto;
     padding-top: 20px;
+    
+}
+
+#campaign-text{
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    top: 20px;
+}
+
+#countdownTimer{
+    font-size: 22px;
+    font-weight: bolder;
 }
 
 .chatbox {
@@ -104,6 +118,47 @@ h3 {
     background-color: #cc0000;
 }
 
+.invite-button {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.invite-button:hover {
+    background-color: #e53e3e;
+}
+
 .summary-box p b {
     font-weight: bold;
+}
+
+.countdown {
+    text-align: center;
+    font-size: 20px;
+    color: #004aad;
+    margin-bottom: 20px;
+}
+
+/* 進捗バーのスタイル */
+.progress-container {
+    width: 90%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 10px auto;
+    height: 15px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #004aad;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
 }
